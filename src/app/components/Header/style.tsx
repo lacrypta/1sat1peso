@@ -18,7 +18,7 @@ export const HeaderPrimitive = styled.div`
 
 export const Background = styled.div`
   position: absolute;
-  top: 0;
+  top: -15%;
   left: 0;
   z-index: -1;
 
