@@ -49,7 +49,7 @@ export function Prices() {
             ${convertCurrency(1, "USD", "ARS").toFixed(0)}
           </Heading>
           <Text size="small" color={appTheme.colors.gray50}>
-            USD
+            ARS
           </Text>
         </Flex>
       </Card>
