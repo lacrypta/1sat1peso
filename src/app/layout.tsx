@@ -23,7 +23,7 @@ export default function RootLayout({
     >
       <head>
         <meta name="viewport" content="width=device-width, user-scalable=no" />
-        <link rel="icon" type="img/png" href="img/schema-logo.png" />
+        <link rel="icon" type="img/png" href="/schema-logo.png" />
 
         {/*  */}
         <meta name="author" content="La Crypta" />
@@ -37,7 +37,7 @@ export default function RootLayout({
         />
         <meta property="og:locale" content="es_ES" />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="/img/social/facebook-1200x630.jpg" />
+        <meta property="og:image" content="/social/facebook-1200x630.jpg" />
         <meta property="og:url" content="https://1satoshi1peso.ar/" />
 
         {/* Twitter */}
@@ -47,7 +47,7 @@ export default function RootLayout({
           content="La hiperbitcoinización es inminente, por eso enterate cuánto falta para el famoso 1 a 1 del Peso Argentino contra Bitcoin."
         />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:image" content="/img/social/twitter-600x330.jpg" />
+        <meta name="twitter:image" content="/social/twitter-600x330.jpg" />
         <meta name="twitter:url" content="https://1satoshi1peso.ar/" />
 
         {/* Analytics */}
