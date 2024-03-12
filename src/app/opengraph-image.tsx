@@ -24,7 +24,7 @@ export default async function Image() {
   );
 
   // Get prices
-  const fetchData = await fetch(ENDPOINT_PRICE_BTC)
+  const fetchData = await fetch(ENDPOINT_PRICE_BTC, { next: { revalidate: 3600 } })
     .then((res) => res.json())
     .then((pricesResponse) => {
       const BTCPrices = pricesResponse.BTC;
@@ -51,6 +51,8 @@ export default async function Image() {
   };
 
   const localArray: any = Array.from({ length: roundToSingleDigit(convertCurrency()) }, (v, i) => i);
+
+  console.log('convertCurrency()', convertCurrency());
 
   return new ImageResponse(
     (
