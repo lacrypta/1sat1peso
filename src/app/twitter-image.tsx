@@ -1,6 +1,6 @@
 import { ImageResponse } from 'next/og';
 
-import { roundToDown, decimalsToUse } from '@/utils';
+import { roundToDown, decimalsToUse, getDecimalPart, roundToSingleDigit } from '@/utils';
 
 // Route segment config
 export const runtime = 'edge';
@@ -50,6 +50,8 @@ export default async function Image() {
     return Number(roundToDown(convertedAmount, 8).toFixed(decimalsToUse('ARS')));
   };
 
+  const localArray: any = Array.from({ length: roundToSingleDigit(convertCurrency()) }, (v, i) => i);
+
   return new ImageResponse(
     (
       <div
@@ -92,26 +94,31 @@ export default async function Image() {
             gap: '12px',
           }}
         >
-          <div
-            style={{
-              overflow: 'hidden',
-              display: 'flex',
-              alignItems: 'center',
-              width: '100%',
-              maxWidth: '70%',
-              height: '16px',
-              backgroundColor: '#4D4D4D',
-              borderRadius: '50px',
-            }}
-          >
-            <div
-              style={{
-                width: `${convertCurrency() * 100}%`,
-                height: '17px',
-                backgroundColor: '#C2F76C',
-              }}
-            ></div>
-          </div>
+          {localArray.map((element: any, index: any) => {
+            const isLastElement = index + 1 === localArray.length;
+            return (
+              <div
+                key={index}
+                style={{
+                  overflow: 'hidden',
+                  display: 'flex',
+                  alignItems: 'center',
+                  width: `${70 / localArray.length}%`,
+                  height: '16px',
+                  backgroundColor: '#4D4D4D',
+                  borderRadius: '50px',
+                }}
+              >
+                <div
+                  style={{
+                    width: `${isLastElement ? getDecimalPart(convertCurrency()) : 100}%`,
+                    height: '16px',
+                    backgroundColor: '#C2F76C',
+                  }}
+                ></div>
+              </div>
+            );
+          })}
           <p
             style={{
               color: '#fff',
