@@ -83,7 +83,7 @@ export default async function Image() {
             lineHeight: '50px',
           }}
         >
-          1 SAT = 1 PESO
+          1SAT = 1PESO
         </div>
         <div
           style={{
