@@ -24,7 +24,7 @@ export default function RootLayout({
     >
       <head>
         <meta name="viewport" content="width=device-width, user-scalable=no" />
-        <link rel="icon" type="img/png" href="img/schema-logo.png" />
+        <link rel="icon" type="img/png" href="/schema-logo.png" />
 
         {/*  */}
         <meta name="author" content="La Crypta" />
