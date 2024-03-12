@@ -9,8 +9,8 @@ export const runtime = 'edge';
 export const contentType = 'image/png';
 export const alt = '1SAT = 1PESO';
 export const size = {
-  width: 1200,
-  height: 630,
+  width: 600,
+  height: 330,
 };
 
 // ENV
@@ -58,7 +58,7 @@ export default async function Image() {
           flexDirection: 'column',
           justifyContent: 'center',
           alignItems: 'center',
-          gap: '16px',
+          gap: '8px',
           height: '100%',
           width: '100%',
           backgroundImage: 'linear-gradient(45deg, #101010, #333333)',
@@ -67,7 +67,7 @@ export default async function Image() {
         <div
           style={{
             color: '#808080',
-            fontSize: '40px',
+            fontSize: '22px',
           }}
         >
           1 BTC = 100.000.000 SAT
@@ -78,9 +78,9 @@ export default async function Image() {
             backgroundClip: 'text',
             color: 'transparent',
             fontFamily: 'Blatant',
-            fontSize: '120px',
+            fontSize: '60px',
             fontWeight: 'bold',
-            lineHeight: '120px',
+            lineHeight: '50px',
           }}
         >
           1 SAT = 1 PESO
@@ -116,7 +116,7 @@ export default async function Image() {
             style={{
               color: '#fff',
               fontWeight: 'bold',
-              fontSize: '48px',
+              fontSize: '24px',
             }}
           >
             ${convertCurrency()}
@@ -130,7 +130,7 @@ export default async function Image() {
             alignItems: 'center',
             gap: '8px',
             color: '#808080',
-            fontSize: '32px',
+            fontSize: '16px',
           }}
         >
           <p>made with</p>

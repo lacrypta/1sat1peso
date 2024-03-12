@@ -9,6 +9,7 @@ export const metadata: Metadata = {
   title: "1 Satoshi 1 Peso | La Crypta",
   description:
     "La hiperbitcoinización es inminente, por eso enterate cuánto falta para el famoso 1 a 1 del Peso Argentino contra Bitcoin.",
+  metadataBase: new URL('https://1satoshi1peso.ar/'),
 };
 
 export default function RootLayout({
@@ -37,7 +38,6 @@ export default function RootLayout({
         />
         <meta property="og:locale" content="es_ES" />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="/img/social/facebook-1200x630.jpg" />
         <meta property="og:url" content="https://1satoshi1peso.ar/" />
 
         {/* Twitter */}
@@ -47,7 +47,6 @@ export default function RootLayout({
           content="La hiperbitcoinización es inminente, por eso enterate cuánto falta para el famoso 1 a 1 del Peso Argentino contra Bitcoin."
         />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:image" content="/img/social/twitter-600x330.jpg" />
         <meta name="twitter:url" content="https://1satoshi1peso.ar/" />
 
         {/* Analytics */}
