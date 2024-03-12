@@ -99,7 +99,7 @@ export default async function Image() {
               alignItems: 'center',
               width: '100%',
               maxWidth: '70%',
-              height: '16px',
+              height: '22px',
               backgroundColor: '#4D4D4D',
               borderRadius: '50px',
             }}
@@ -107,7 +107,7 @@ export default async function Image() {
             <div
               style={{
                 width: `${convertCurrency() * 100}%`,
-                height: '17px',
+                height: '22px',
                 backgroundColor: '#C2F76C',
               }}
             ></div>
