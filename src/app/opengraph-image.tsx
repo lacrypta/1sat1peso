@@ -24,7 +24,7 @@ export default async function Image() {
   );
 
   // Get prices
-  const fetchData = await fetch(ENDPOINT_PRICE_BTC, { next: { revalidate: 3600 } })
+  const fetchData = await fetch(ENDPOINT_PRICE_BTC, { cache: 'no-store' })
     .then((res) => res.json())
     .then((pricesResponse) => {
       const BTCPrices = pricesResponse.BTC;
