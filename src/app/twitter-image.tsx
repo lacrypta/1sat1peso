@@ -119,7 +119,7 @@ export default async function Image() {
               fontSize: '24px',
             }}
           >
-            ${convertCurrency()}
+            ${String(convertCurrency()).replace('.', ',')}
           </p>
         </div>
         <div
