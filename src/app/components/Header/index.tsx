@@ -28,9 +28,19 @@ export default function Header() {
       <Flex gap={8} align='center' justify='center'>
         {localArray.map((element: any, index: any) => {
           const isLastElement = index + 1 === localArray.length;
-          return <Progress key={index} value={isLastElement ? getDecimalPart(valueSatInArs) : 100} />;
+          return (
+            <>
+              <Progress key={index} value={isLastElement ? getDecimalPart(valueSatInArs) : 100} />
+              {isLastElement ? (
+                <Text isBold>${String(valueSatInArs).replace('.', ',')}</Text>
+              ) : (
+                <Text size='small' color={appTheme.colors.primary}>
+                  ${index + 1}
+                </Text>
+              )}
+            </>
+          );
         })}
-        <Text isBold>${String(valueSatInArs).replace('.', ',')}</Text>
       </Flex>
       <Divider y={12} />
       <Text align='center' color={appTheme.colors.gray50}>
