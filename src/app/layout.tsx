@@ -1,14 +1,14 @@
-import type { Metadata } from "next";
-import Script from "next/script";
+import type { Metadata } from 'next';
+import Script from 'next/script';
 
-import StyledComponentsRegistry from "@/utils/registry";
-import { GOOGLE_TAG_ID } from "@/constants/config";
-import { fontPrimary, fontSecondary } from "@/styles/fonts";
+import StyledComponentsRegistry from '@/utils/registry';
+import { GOOGLE_TAG_ID } from '@/constants/config';
+import { fontPrimary, fontSecondary } from '@/styles/fonts';
 
 export const metadata: Metadata = {
-  title: "1 Satoshi 1 Peso | La Crypta",
+  title: '1 Satoshi 1 Peso | La Crypta',
   description:
-    "La hiperbitcoinización es inminente, por eso enterate cuánto falta para el famoso 1 a 1 del Peso Argentino contra Bitcoin.",
+    'La hiperbitcoinización es inminente, por eso enterate cuánto falta para el famoso 1 a 1 del Peso Argentino contra Bitcoin.',
   metadataBase: new URL('https://1satoshi1peso.ar/'),
 };
 
@@ -18,10 +18,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="es"
-      className={`${fontPrimary.variable} ${fontSecondary.variable}`}
-    >
+    <html lang="es" className={`${fontPrimary.variable} ${fontSecondary.variable}`}>
       <head>
         <meta name="viewport" content="width=device-width, user-scalable=no" />
         <link rel="icon" type="img/png" href="/schema-logo.png" />
@@ -50,9 +47,7 @@ export default function RootLayout({
         <meta name="twitter:url" content="https://1satoshi1peso.ar/" />
 
         {/* Analytics */}
-        <Script
-          src={`https://www.googletagmanager.com/gtag/js?id=${GOOGLE_TAG_ID}`}
-        />
+        <Script src={`https://www.googletagmanager.com/gtag/js?id=${GOOGLE_TAG_ID}`} />
         <Script id="google-analytics">
           {`
           window.dataLayer = window.dataLayer || [];

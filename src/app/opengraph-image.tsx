@@ -1,35 +1,30 @@
-import { ImageResponse } from "next/og";
+import { ImageResponse } from 'next/og';
 
-import {
-  roundToDown,
-  decimalsToUse,
-  getDecimalPart,
-  roundToSingleDigit,
-} from "@/utils";
+import { decimalsToUse, roundToDown, roundToSingleDigit } from '@/utils';
 
 // Route segment config
-export const runtime = "edge";
+export const runtime = 'edge';
 
 // Image metadata
-export const contentType = "image/png";
-export const alt = "1SAT = 1PESO";
+export const contentType = 'image/png';
+export const alt = '1SAT = 1PESO';
 export const size = {
   width: 1200,
   height: 630,
 };
 
 // ENV
-const ENDPOINT_PRICE_BTC: string = "https://api.yadio.io/exrates/btc";
+const ENDPOINT_PRICE_BTC: string = 'https://api.yadio.io/exrates/btc';
 
 // Image generation
 export default async function Image() {
   // Font
-  const blatantBoldFont = fetch(
-    new URL("../styles/fonts/Blatant-Bold.woff", import.meta.url)
-  ).then((res) => res.arrayBuffer());
+  const blatantBoldFont = fetch(new URL('../styles/fonts/Blatant-Bold.woff', import.meta.url)).then((res) =>
+    res.arrayBuffer(),
+  );
 
   // Get prices
-  const fetchData = await fetch(ENDPOINT_PRICE_BTC, { cache: "no-store" })
+  const fetchData = await fetch(ENDPOINT_PRICE_BTC, { cache: 'no-store' })
     .then((res) => res.json())
     .then((pricesResponse) => {
       const BTCPrices = pricesResponse.BTC;
@@ -52,58 +47,53 @@ export default async function Image() {
     const multiplier: number = Number(fetchData.ARS) / Number(fetchData.SAT);
     convertedAmount = 1 * multiplier;
 
-    return Number(
-      roundToDown(convertedAmount, 8).toFixed(decimalsToUse("ARS"))
-    );
+    return Number(roundToDown(convertedAmount, 8).toFixed(decimalsToUse('ARS')));
   };
 
-  const localArray: any = Array.from(
-    { length: roundToSingleDigit(convertCurrency()) },
-    (v, i) => i
-  );
+  const localArray: any = Array.from({ length: roundToSingleDigit(convertCurrency()) }, (v, i) => i);
 
-  console.log("convertCurrency()", convertCurrency());
+  console.log('convertCurrency()', convertCurrency());
 
   return new ImageResponse(
     (
       <div
         style={{
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          alignItems: "center",
-          gap: "16px",
-          height: "100%",
-          width: "100%",
-          backgroundImage: "linear-gradient(45deg, #101010, #333333)",
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          alignItems: 'center',
+          gap: '16px',
+          height: '100%',
+          width: '100%',
+          backgroundImage: 'linear-gradient(45deg, #101010, #333333)',
         }}
       >
         <div
           style={{
-            color: "#808080",
-            fontSize: "40px",
+            color: '#808080',
+            fontSize: '40px',
           }}
         >
           1 BTC = 100.000.000 SAT
         </div>
         <div
           style={{
-            backgroundImage: "linear-gradient(45deg, #808080, #fff)",
-            backgroundClip: "text",
-            color: "transparent",
-            fontFamily: "Blatant",
-            fontSize: "120px",
-            fontWeight: "bold",
-            lineHeight: "120px",
+            backgroundImage: 'linear-gradient(45deg, #808080, #fff)',
+            backgroundClip: 'text',
+            color: 'transparent',
+            fontFamily: 'Blatant',
+            fontSize: '120px',
+            fontWeight: 'bold',
+            lineHeight: '120px',
           }}
         >
           1SAT = 1PESO
         </div>
         <div
           style={{
-            display: "flex",
-            alignItems: "center",
-            gap: "12px",
+            display: 'flex',
+            alignItems: 'center',
+            gap: '12px',
           }}
         >
           {localArray.map((element: any, index: any) => {
@@ -112,20 +102,20 @@ export default async function Image() {
               <div
                 key={index}
                 style={{
-                  overflow: "hidden",
-                  display: "flex",
-                  alignItems: "center",
+                  overflow: 'hidden',
+                  display: 'flex',
+                  alignItems: 'center',
                   width: `${70 / localArray.length}%`,
-                  height: "22px",
-                  backgroundColor: "#4D4D4D",
-                  borderRadius: "50px",
+                  height: '22px',
+                  backgroundColor: '#4D4D4D',
+                  borderRadius: '50px',
                 }}
               >
                 <div
                   style={{
                     width: `${isLastElement ? convertCurrency() * 100 : 100}%`,
-                    height: "22px",
-                    backgroundColor: "#C2F76C",
+                    height: '22px',
+                    backgroundColor: '#C2F76C',
                   }}
                 ></div>
               </div>
@@ -134,33 +124,27 @@ export default async function Image() {
 
           <p
             style={{
-              color: "#fff",
-              fontWeight: "bold",
-              fontSize: "48px",
+              color: '#fff',
+              fontWeight: 'bold',
+              fontSize: '48px',
             }}
           >
-            ${String(convertCurrency()).replace(".", ",")}
+            ${String(convertCurrency()).replace('.', ',')}
           </p>
         </div>
         <div
           style={{
-            position: "absolute",
-            bottom: "20px",
-            display: "flex",
-            alignItems: "center",
-            gap: "8px",
-            color: "#808080",
-            fontSize: "32px",
+            position: 'absolute',
+            bottom: '20px',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '8px',
+            color: '#808080',
+            fontSize: '32px',
           }}
         >
           <p>made with</p>
-          <svg
-            width="33"
-            height="31"
-            viewBox="0 0 33 31"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
+          <svg width="33" height="31" viewBox="0 0 33 31" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path
               d="M29.072 16.2676C27.5843 21.8198 23.6912 23.1677 19.6262 22.0785C15.5612 20.9893 12.8636 17.8754 14.3513 12.3232C15.839 6.77102 20.9487 0.882984 25.0137 1.9722C29.0787 3.06141 30.5597 10.7154 29.072 16.2676Z"
               fill="url(#paint0_linear_849_2340)"
@@ -179,9 +163,9 @@ export default async function Image() {
                 width="23.7002"
                 height="28.585"
                 filterUnits="userSpaceOnUse"
-                color-interpolation-filters="sRGB"
+                colorInterpolationFilters="sRGB"
               >
-                <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                <feFlood floodOpacity="0" result="BackgroundImageFix" />
                 <feColorMatrix
                   in="SourceAlpha"
                   type="matrix"
@@ -191,21 +175,9 @@ export default async function Image() {
                 <feOffset dx="2" dy="4" />
                 <feGaussianBlur stdDeviation="2" />
                 <feComposite in2="hardAlpha" operator="out" />
-                <feColorMatrix
-                  type="matrix"
-                  values="0 0 0 0 0.109804 0 0 0 0 0.109804 0 0 0 0 0.109804 0 0 0 0.65 0"
-                />
-                <feBlend
-                  mode="normal"
-                  in2="BackgroundImageFix"
-                  result="effect1_dropShadow_849_2340"
-                />
-                <feBlend
-                  mode="normal"
-                  in="SourceGraphic"
-                  in2="effect1_dropShadow_849_2340"
-                  result="shape"
-                />
+                <feColorMatrix type="matrix" values="0 0 0 0 0.109804 0 0 0 0 0.109804 0 0 0 0 0.109804 0 0 0 0.65 0" />
+                <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_849_2340" />
+                <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_849_2340" result="shape" />
               </filter>
               <linearGradient
                 id="paint0_linear_849_2340"
@@ -215,9 +187,9 @@ export default async function Image() {
                 y2="22.0785"
                 gradientUnits="userSpaceOnUse"
               >
-                <stop stop-color="white" />
-                <stop offset="0.175" stop-color="#F2EFEA" />
-                <stop offset="1" stop-color="#BDB7AF" />
+                <stop stopColor="white" />
+                <stop offset="0.175" stopColor="#F2EFEA" />
+                <stop offset="1" stopColor="#BDB7AF" />
               </linearGradient>
               <linearGradient
                 id="paint1_linear_849_2340"
@@ -227,29 +199,20 @@ export default async function Image() {
                 y2="22.4498"
                 gradientUnits="userSpaceOnUse"
               >
-                <stop stop-color="white" />
-                <stop offset="0.175" stop-color="#F2EFEA" />
-                <stop offset="1" stop-color="#BDB7AF" />
+                <stop stopColor="white" />
+                <stop offset="0.175" stopColor="#F2EFEA" />
+                <stop offset="1" stopColor="#BDB7AF" />
               </linearGradient>
             </defs>
           </svg>
           <p>by</p>
-          <svg
-            width="129"
-            height="31"
-            viewBox="0 0 129 31"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <g clip-path="url(#clip0_849_2347)">
+          <svg width="129" height="31" viewBox="0 0 129 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g clipPath="url(#clip0_849_2347)">
               <path
                 d="M25.0707 17.6752V15.1125H15.7505V12.5498H25.0689C25.0655 5.73362 19.5393 0.210938 12.7215 0.210938C5.90188 0.210938 0.374023 5.7388 0.374023 12.5584V27.9245H25.0707V25.3618H5.49951V22.799H25.0707V20.2363H10.6233V17.6735H25.0707V17.6752Z"
                 fill="white"
               />
-              <path
-                d="M37.6131 10.2393H35.3232V25.3619H37.6131V10.2393Z"
-                fill="white"
-              />
+              <path d="M37.6131 10.2393H35.3232V25.3619H37.6131V10.2393Z" fill="white" />
               <path
                 d="M40.3846 14.9034C41.4294 14.4234 43.0786 13.8345 44.8884 13.8345C49.3197 13.8345 50.5596 15.8981 50.5596 19.0325V25.3599H48.0262V24.4826C46.8985 25.2287 45.1681 25.5723 43.4447 25.5723C40.2603 25.5723 39.1084 23.8851 39.1084 22.1928C39.1084 20.5004 40.6713 18.3849 43.7417 18.3866C45.4669 18.3866 46.8519 18.7925 48.0262 19.4953V19.0342C48.0262 16.8928 47.7033 15.9137 45.0697 15.9137C42.4362 15.9137 40.3863 17.2244 40.3863 17.2244V14.9069L40.3846 14.9034ZM47.9088 21.9717C46.9296 21.2084 45.6033 20.4969 44.0767 20.4969C42.3153 20.4969 41.6418 21.3846 41.6418 22.191C41.6418 23.2807 43.0233 23.6382 44.391 23.4655C46.1698 23.241 46.9279 22.6987 47.907 21.9354V21.97L47.9088 21.9717Z"
                 fill="white"
@@ -281,12 +244,7 @@ export default async function Image() {
             </g>
             <defs>
               <clipPath id="clip0_849_2347">
-                <rect
-                  width="127.759"
-                  height="30"
-                  fill="white"
-                  transform="translate(0.374023 0.210938)"
-                />
+                <rect width="127.759" height="30" fill="white" transform="translate(0.374023 0.210938)" />
               </clipPath>
             </defs>
           </svg>
@@ -298,11 +256,11 @@ export default async function Image() {
       ...size,
       fonts: [
         {
-          name: "Blatant",
+          name: 'Blatant',
           data: await blatantBoldFont,
           weight: 700,
         },
       ],
-    }
+    },
   );
 }

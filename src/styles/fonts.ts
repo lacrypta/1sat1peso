@@ -1,4 +1,4 @@
-import localFont from 'next/font/local'
+import localFont from 'next/font/local';
 
 const fontPrimary = localFont({
   variable: '--font-primary',
@@ -6,15 +6,15 @@ const fontPrimary = localFont({
     {
       path: './fonts/Blatant.woff',
       weight: '400',
-      style: 'normal'
+      style: 'normal',
     },
     {
       path: './fonts/Blatant-Bold.woff',
       weight: '700',
-      style: 'bold'
-    }
-  ]
-})
+      style: 'bold',
+    },
+  ],
+});
 
 const fontSecondary = localFont({
   variable: '--font-secondary',
@@ -22,14 +22,14 @@ const fontSecondary = localFont({
     {
       path: './fonts/Standerd.woff2',
       weight: '400',
-      style: 'normal'
+      style: 'normal',
     },
     {
       path: './fonts/Standerd-Bold.woff2',
       weight: '700',
-      style: 'bold'
-    }
-  ]
-})
+      style: 'bold',
+    },
+  ],
+});
 
-export { fontPrimary, fontSecondary }
+export { fontPrimary, fontSecondary };

@@ -17,32 +17,32 @@ export default function Footer() {
   return (
     <FooterPrimitive>
       <Container>
-        <div className='box'>
-          <Flex flex={1} justify='space-between' gap={16}>
-            <div className='copy'>
-              <Flex align='center' gap={4}>
+        <div className="box">
+          <Flex flex={1} justify="space-between" gap={16}>
+            <div className="copy">
+              <Flex align="center" gap={4}>
                 <Text color={appTheme.colors.gray50}>made with</Text>
                 <Eggs />
                 <Text color={appTheme.colors.gray50}>by</Text>
               </Flex>
               <Divider y={8} />
-              <Link href='https://lacrypta.ar/' target='_blank'>
-                <Image src='/la-crypta-logo.svg' alt='LaCrypta logo' width={135} height={30} />
+              <Link href="https://lacrypta.ar/" target="_blank">
+                <Image src="/la-crypta-logo.svg" alt="LaCrypta logo" width={135} height={30} />
               </Link>
             </div>
-            <div className='social'>
-              <Link href='https://twitter.com/LaCryptaOk/' target='_blank'>
-                <Button variant='bezeled' tabIndex={-1}>
+            <div className="social">
+              <Link href="https://twitter.com/LaCryptaOk/" target="_blank">
+                <Button variant="bezeled" tabIndex={-1}>
                   <Twitter />
                 </Button>
               </Link>
-              <Link href='https://github.com/lacrypta/' target='_blank'>
-                <Button variant='bezeled' tabIndex={-1}>
+              <Link href="https://github.com/lacrypta/" target="_blank">
+                <Button variant="bezeled" tabIndex={-1}>
                   <Github />
                 </Button>
               </Link>
-              <Link href='https://discord.gg/skvz2HdcYJ' target='_blank'>
-                <Button variant='bezeled' tabIndex={-1}>
+              <Link href="https://discord.gg/skvz2HdcYJ" target="_blank">
+                <Button variant="bezeled" tabIndex={-1}>
                   <Discord />
                 </Button>
               </Link>

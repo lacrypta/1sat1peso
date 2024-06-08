@@ -35,9 +35,9 @@ export const roundToSingleDigit = (number: number) => {
   return Math.ceil(number);
 };
 
-export const getDecimalPart = (number: any) => {
+export const getDecimalPart = (number: number) => {
   // Convert the number to a string and split it into parts separated by the decimal point
-  var parts = number.toString().split('.');
+  const parts = number.toString().split('.');
 
   // If there is only one part (no decimal point or only a decimal point at the end), return "0"
   if (parts.length === 1) {

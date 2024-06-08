@@ -1,23 +1,11 @@
-"use client";
+'use client';
 
-import {
-  Button,
-  Container,
-  Heading,
-  Flex,
-  Text,
-  Divider,
-  Icon,
-} from "@lawallet/ui";
-import GitHubCorners from "@uiw/react-github-corners";
+import { Container, Flex } from '@lawallet/ui';
 
-import { appTheme } from "@/config";
-
-import { Progress } from "@/app/components/Progress";
-import { Prices } from "@/app/components/Prices";
-import Header from "@/app/components/Header";
-import Footer from "@/app/components/Footer";
-import { PricesProvider } from "@/context/PricesContext";
+import Footer from '@/app/components/Footer';
+import Header from '@/app/components/Header';
+import { Prices } from '@/app/components/Prices';
+import { PricesProvider } from '@/context/PricesContext';
 
 export default function Home() {
   return (
