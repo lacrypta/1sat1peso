@@ -30,7 +30,10 @@ export default function Header() {
           const isLastElement = index + 1 === localArray.length;
           return (
             <>
-              <Progress key={index} value={isLastElement ? getDecimalPart(valueSatInArs) : 100} />
+              <Progress
+                key={index}
+                value={isLastElement ? valueSatInArs * 100 : 100}
+              />
               {isLastElement ? (
                 <Text isBold>${String(valueSatInArs).replace('.', ',')}</Text>
               ) : (
