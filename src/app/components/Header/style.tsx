@@ -18,7 +18,7 @@ export const HeaderPrimitive = styled.div`
 
 export const Background = styled.div`
   position: absolute;
-  top: -15%;
+  top: -8%;
   left: 0;
   z-index: -1;
 
@@ -31,5 +31,9 @@ export const Background = styled.div`
     width: 120%;
     max-width: 1200px;
     height: auto;
+  }
+
+  @media screen and (min-width: 600px) {
+    top: -18%;
   }
 `;
