@@ -26,8 +26,8 @@ export default function Home() {
           <Header />
           <Prices />
           <Flex>
-            <Button onClick={() => router.push('#')} variant="borderless">
-              Enterate sobre nuestro evento
+            <Button onClick={() => router.push('https://forms.gle/7J88nXtmZfJYUiRz8')} variant="borderless">
+              Festejá el suceso con nosotros
               <ArrowRightIcon />
             </Button>
           </Flex>
