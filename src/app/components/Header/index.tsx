@@ -43,9 +43,7 @@ export default function Header() {
         })}
       </Flex>
       <Divider y={12} />
-      <Text align="center" color={appTheme.colors.gray50}>
-        1 BTC = 100.000.000 SAT
-      </Text>
+      <Text align="center">1 BTC = 100.000.000 SAT</Text>
       <Divider y={16} />
     </HeaderPrimitive>
   );
