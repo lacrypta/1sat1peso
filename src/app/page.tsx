@@ -1,16 +1,15 @@
+/* eslint-disable @next/next/no-img-element */
 'use client';
 
-import { useRouter } from 'next/navigation';
-import { Container, Flex, Button, ArrowRightIcon } from '@lawallet/ui';
+import { Container, Flex } from '@lawallet/ui';
 
 import Footer from '@/app/components/Footer';
 import Header from '@/app/components/Header';
 import { Prices } from '@/app/components/Prices';
 import { PricesProvider } from '@/context/PricesContext';
+import { Banner } from './components/Banner';
 
 export default function Home() {
-  const router = useRouter();
-
   return (
     <PricesProvider>
       <div>
@@ -26,10 +25,7 @@ export default function Home() {
           <Header />
           <Prices />
           <Flex>
-            <Button onClick={() => router.push('https://forms.gle/7J88nXtmZfJYUiRz8')} variant="borderless">
-              Festejá el suceso con nosotros
-              <ArrowRightIcon />
-            </Button>
+            <Banner href={'https://forms.gle/7J88nXtmZfJYUiRz8'} />
           </Flex>
         </Container>
       </Flex>
