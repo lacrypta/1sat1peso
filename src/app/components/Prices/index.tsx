@@ -1,6 +1,5 @@
 import { appTheme } from '@/config';
-import { Flex, Icon, Heading, Text } from '@lawallet/ui';
-import { ArrowUp, ArrowDown } from '../Icons';
+import { Flex, Heading, Text } from '@lawallet/ui';
 import { Card } from '../Card';
 
 import { PricesPrimitive } from './style';
@@ -9,7 +8,7 @@ import { usePricesContext } from '@/context/PricesContext';
 export function Prices() {
   const { convertCurrency } = usePricesContext();
 
-  function formatNumber(number: any) {
+  function formatNumber(number: string) {
     return number.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
   }
 

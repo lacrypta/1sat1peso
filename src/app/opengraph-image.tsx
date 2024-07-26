@@ -50,7 +50,7 @@ export default async function Image() {
     return Number(roundToDown(convertedAmount, 8).toFixed(decimalsToUse('ARS')));
   };
 
-  const localArray: any = Array.from({ length: roundToSingleDigit(convertCurrency()) }, (v, i) => i);
+  const localArray = Array.from({ length: roundToSingleDigit(convertCurrency()) }, (v, i) => i);
 
   console.log('convertCurrency()', convertCurrency());
 
@@ -96,7 +96,7 @@ export default async function Image() {
             gap: '12px',
           }}
         >
-          {localArray.map((element: any, index: any) => {
+          {localArray.map((element, index) => {
             const isLastElement = index + 1 === localArray.length;
             return (
               <div

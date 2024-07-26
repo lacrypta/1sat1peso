@@ -6,7 +6,7 @@ import { Divider, Flex, Heading, Text } from '@lawallet/ui';
 
 import { appTheme } from '@/config';
 import { usePricesContext } from '@/context/PricesContext';
-import { getDecimalPart, roundToSingleDigit } from '@/utils';
+import { roundToSingleDigit } from '@/utils';
 
 import { Progress } from '../Progress';
 
@@ -17,7 +17,7 @@ export default function Header() {
 
   const valueSatInArs = useMemo(() => convertCurrency(1, 'SAT', 'ARS'), [pricesData]);
 
-  const localArray: any = Array.from({ length: roundToSingleDigit(valueSatInArs) }, (v, i) => i);
+  const localArray = Array.from({ length: roundToSingleDigit(valueSatInArs) }, (v, i) => i);
 
   return (
     <HeaderPrimitive>
@@ -26,7 +26,7 @@ export default function Header() {
       </Background>
       <Heading align="center">1SAT = 1PESO</Heading>
       <Flex gap={8} align="center" justify="center">
-        {localArray.map((element: any, index: any) => {
+        {localArray.map((element, index) => {
           const isLastElement = index + 1 === localArray.length;
           return (
             <>
