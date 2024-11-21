@@ -25,7 +25,7 @@ export default function Home() {
           <Header />
           <Prices />
           <Flex>
-            <Banner href={'https://forms.gle/7J88nXtmZfJYUiRz8'} />
+            <Banner href={'https://fiesta.1satoshi1peso.ar/'} />
           </Flex>
         </Container>
       </Flex>
