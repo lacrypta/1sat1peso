@@ -14,6 +14,7 @@ export type UseConverterReturns = {
 
 export const useCurrencyConverter = (): UseConverterReturns => {
   const [pricesData, setPricesData] = React.useState<PricesInfo>({
+    CLP: 0,
     ARS: 0,
     USD: 0,
     SAT: 1,
@@ -38,6 +39,7 @@ export const useCurrencyConverter = (): UseConverterReturns => {
         if (!BTCPrices) return false;
 
         const updatedPrices: PricesInfo = {
+          CLP: BTCPrices.CLP / scaledBTC,
           ARS: BTCPrices.ARS / scaledBTC,
           USD: BTCPrices.USD / scaledBTC,
           SAT: 1,

@@ -31,6 +31,7 @@ export default async function Image() {
       if (!BTCPrices) return false;
 
       const updatedPrices = {
+        CLP: BTCPrices.CLP / 10 ** 8,
         ARS: BTCPrices.ARS / 10 ** 8,
         USD: BTCPrices.USD / 10 ** 8,
         SAT: 1,
@@ -44,10 +45,10 @@ export default async function Image() {
     let convertedAmount: number = 0;
     if (!fetchData) return convertedAmount;
 
-    const multiplier: number = Number(fetchData.ARS) / Number(fetchData.SAT);
+    const multiplier: number = Number(fetchData.CLP) / Number(fetchData.SAT);
     convertedAmount = 1 * multiplier;
 
-    return Number(roundToDown(convertedAmount, 8).toFixed(decimalsToUse('ARS')));
+    return Number(roundToDown(convertedAmount, 8).toFixed(decimalsToUse('CLP')));
   };
 
   const localArray = Array.from({ length: roundToSingleDigit(convertCurrency()) }, (v, i) => i);

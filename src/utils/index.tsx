@@ -1,4 +1,4 @@
-export type AvailableCurrencies = 'SAT' | 'ARS' | 'USD';
+export type AvailableCurrencies = 'SAT' | 'ARS' | 'USD' | 'CLP';
 
 export function parseContent(content: string) {
   try {
@@ -22,9 +22,6 @@ export const decimalsToUse = (currency: AvailableCurrencies): number => {
   switch (currency) {
     case 'SAT':
       return 0;
-
-    case 'ARS':
-      return 2;
 
     default:
       return 2;

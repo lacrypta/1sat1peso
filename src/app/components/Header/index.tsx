@@ -15,15 +15,15 @@ import { Background, HeaderPrimitive } from './style';
 export default function Header() {
   const { pricesData, convertCurrency } = usePricesContext();
 
-  const valueSatInArs = useMemo(() => convertCurrency(1, 'SAT', 'ARS'), [pricesData]);
+  const valueSatInArs = useMemo(() => convertCurrency(1, 'SAT', 'CLP'), [pricesData]);
 
   const localArray = Array.from({ length: roundToSingleDigit(valueSatInArs) }, (v, i) => i);
 
   return (
     <HeaderPrimitive>
-      <Background>
+      {/* <Background>
         <Image src="/map.webp" alt="map" width={2103} height={1248} />
-      </Background>
+      </Background> */}
       <Heading align="center">1SAT = 1PESO</Heading>
       <Flex gap={8} align="center" justify="center">
         {localArray.map((element, index) => {

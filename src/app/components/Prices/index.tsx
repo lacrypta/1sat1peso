@@ -46,9 +46,9 @@ export function Prices() {
           </Flex> */}
         </Flex>
         <Flex align="center" gap={4}>
-          <Heading as="h2">${formatNumber(convertCurrency(1, 'USD', 'ARS').toFixed(0))}</Heading>
+          <Heading as="h2">${formatNumber(convertCurrency(1, 'USD', 'CLP').toFixed(0))}</Heading>
           <Text size="small" color={appTheme.colors.gray50}>
-            ARS
+            CLP
           </Text>
         </Flex>
       </Card>
