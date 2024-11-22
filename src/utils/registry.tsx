@@ -3,7 +3,7 @@
 import React, { ReactNode, useState } from 'react';
 import { useServerInsertedHTML } from 'next/navigation';
 import { ServerStyleSheet } from 'styled-components';
-import { Provider } from '@lawallet/ui';
+import { ReactProvider } from '@lawallet/ui';
 import GlobalStyles from '@/styles/GlobalStyles';
 import { appTheme } from '@/config';
 
@@ -21,9 +21,9 @@ export default function StyledComponentsRegistry({ children }: { children: React
   const sheet = typeof window === 'undefined' ? styledComponentsStyleSheet.instance : undefined;
 
   return (
-    <Provider theme={appTheme} sheet={sheet}>
+    <ReactProvider theme={appTheme} sheet={sheet}>
       <GlobalStyles />
       {children}
-    </Provider>
+    </ReactProvider>
   );
 }
