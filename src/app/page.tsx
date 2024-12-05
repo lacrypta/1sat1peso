@@ -7,7 +7,7 @@ import Footer from '@/app/components/Footer';
 import Header from '@/app/components/Header';
 import { Prices } from '@/app/components/Prices';
 import { PricesProvider } from '@/context/PricesContext';
-import { Banner } from './components/Banner';
+// import { Banner } from './components/Banner';
 
 export default function Home() {
   return (
@@ -24,9 +24,9 @@ export default function Home() {
         <Container size="small">
           <Header />
           <Prices />
-          <Flex>
-            <Banner href={'https://forms.gle/7J88nXtmZfJYUiRz8'} />
-          </Flex>
+          {/* <Flex>
+              <Banner href={'https://forms.gle/7J88nXtmZfJYUiRz8'} />
+            </Flex> */}
         </Container>
       </Flex>
       <Footer />
